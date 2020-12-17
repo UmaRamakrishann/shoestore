@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.udacity.shoestore.WelcomeFragment">
+
+    <!-- LinearLayout is used here as it is simple screen with just a text view and button placed vertically -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/instructions_text"
+            style="@style/label_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/shoeStoreInstructions" />
+
+        <Button
+            android:id="@+id/shoelist_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/shoeList" />
+    </LinearLayout>
+
+
+</layout>
+
+

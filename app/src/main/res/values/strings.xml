@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">SHOE STORE</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="newlogin">New Login</string>
+    <string name="loginExistingAccount">Login to an Exisiting Account</string>
+    <string name="login">LOGIN</string>
+    <string name="welcomeShoeStore">Welcome To the Shoe Store!</string>
+    <string name="welcomeDescription">Here you will find all the shoes in stock and you can add new shoes to the Inventory. Happy Shoeing!</string>
+    <string name="enter">Enter</string>
+    <string name="shoename">Shoe Name</string>
+    <string name="company">Company</string>
+    <string name="shoeSize">Shoe Size</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="logout">LogOut</string>
+    <string name="shoeDetail">SHOE DETAIL</string>
+    <string name="shoeList">SHOE LIST</string>
+    <string name="instructions">INSTRUCTIONS</string>
+    <string name="welcome">"WELCOME"</string>
+    <string name="shoeStoreInstructions">"1. On the next Shoe List screen, Click on the + button and it will take you to the Shoe Detail screen.\n \n 2. On the Detail screen fill in all the Shoe details and click Save and VOILA-  you are building your shoe inventory!"</string>
+</resources>
