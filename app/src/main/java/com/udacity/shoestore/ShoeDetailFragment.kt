@@ -29,27 +29,17 @@ class ShoeDetailFragment : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_shoe_detail, container, false
         )
+        binding.shoe = shoe
         //Set Button onClick listeners
-        binding.saveButton.setOnClickListener { addShoe(it) }
+        binding.saveButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
+            viewModel.addShoe(shoe)
+        }
         binding.cancelButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
-        binding.shoe = shoe
         return binding.root
     }
 
-    //Get the shoe details and persist to the view model
-    private fun addShoe(view: View) {
-        binding.apply {
-            shoe?.name = shoeNameEdit.text.toString()
-            shoe?.company = companyEdit.text.toString()
-            shoe?.size = shoeSizeEdit.text.toString()
-            shoe?.description = descriptionEdit.text.toString()
-
-        }
-        viewModel.addShoe(shoe)
-        //Navigate to the ShoeList Fragment after Saving
-        view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
-    }
 }
 

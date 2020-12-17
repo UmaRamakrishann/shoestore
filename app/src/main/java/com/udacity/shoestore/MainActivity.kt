@@ -43,17 +43,6 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(ShoeStoreViewModel::class.java)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        //Inflate the menu
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.overflow_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, navController)
-                || super.onOptionsItemSelected(item)
-    }
 
     override fun onBackPressed() {
         //Ensure that when device bacl button pressed from ShoeList screen,

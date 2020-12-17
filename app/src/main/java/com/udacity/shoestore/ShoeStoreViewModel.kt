@@ -9,9 +9,11 @@ import androidx.lifecycle.ViewModel
  */
 class ShoeStoreViewModel : ViewModel() {
 
-    var _shoeList: MutableLiveData<List<Shoe>> = MutableLiveData<List<Shoe>>()
+    private var _shoeList: MutableLiveData<List<Shoe>> = MutableLiveData<List<Shoe>>()
+    val shoeList:LiveData<List<Shoe>>
+            get()=_shoeList
     private val _loggedIn = MutableLiveData<Boolean>()
-    val loggedIn: MutableLiveData<Boolean>
+    val loggedIn:LiveData<Boolean>
         get() = _loggedIn
 
     private var list = ArrayList<Shoe>()

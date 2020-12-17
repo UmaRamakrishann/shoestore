@@ -2,9 +2,7 @@ package com.udacity.shoestore
 
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
@@ -12,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.FragmentShoelistBinding
 
 
@@ -32,11 +32,12 @@ class ShoeListFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentShoelistBinding>(
             inflater, R.layout.fragment_shoelist, container, false
         )
+        setHasOptionsMenu(true)
         binding.addShoeButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_shoeListFragment_to_shoeDetailFragment)
         }
         //Build the Shoes List observing the shoes added in the Shoe detail fragment
-        viewModel._shoeList.observe(this.viewLifecycleOwner, Observer { newShoeList ->
+        viewModel.shoeList.observe(this.viewLifecycleOwner, Observer { newShoeList ->
             newShoeList.forEach {
                 val textView = TextView(this.context)
                 textView.setTextAppearance(R.style.label_style)
@@ -47,5 +48,18 @@ class ShoeListFragment : Fragment() {
         })
         return binding.root
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        //Inflate the menu
+        val inflater: MenuInflater = inflater
+        inflater.inflate(R.menu.overflow_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = this.findNavController()
+        return NavigationUI.onNavDestinationSelected(item, navController)
+                || super.onOptionsItemSelected(item)
+    }
+
 
 }
